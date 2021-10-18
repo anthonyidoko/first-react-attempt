@@ -23,7 +23,7 @@ const MyForm = () =>{
     }])
 
 
-    const handleChange = (event : React.ChangeEvent<HTMLInputElement>) :void =>{
+    const handleChange = (event : React.ChangeEvent<HTMLInputElement|HTMLSelectElement>) :void =>{
         setState({
             ...state,[event.target.name] : event.target.value
         })
@@ -73,8 +73,10 @@ const MyForm = () =>{
             </div>
 
             <div>
-                <input type = "text" className = "Input" placeholder = "Gender" name = "gender" value={state.gender} onChange = {handleChange}/>
-            
+                <select className = "Input" name = "gender" value = {state.gender} onChange = {handleChange}>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>            
             </div>
 
             <div>
